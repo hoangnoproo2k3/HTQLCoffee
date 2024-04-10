@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
+            this.xemDSHDNhap = new System.Windows.Forms.Button();
+            this.resetHDnhap = new System.Windows.Forms.Button();
             this.addHDNhap = new System.Windows.Forms.Button();
             this.dateTimePickerNgaylap = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -56,8 +56,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button29);
+            this.groupBox2.Controls.Add(this.xemDSHDNhap);
+            this.groupBox2.Controls.Add(this.resetHDnhap);
             this.groupBox2.Controls.Add(this.addHDNhap);
             this.groupBox2.Controls.Add(this.dateTimePickerNgaylap);
             this.groupBox2.Controls.Add(this.label7);
@@ -72,25 +72,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin phiếu nhập";
             // 
-            // button2
+            // xemDSHDNhap
             // 
-            this.button2.Location = new System.Drawing.Point(444, 133);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(136, 33);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Xem danh sách";
-            this.button2.UseVisualStyleBackColor = true;
+            this.xemDSHDNhap.Location = new System.Drawing.Point(444, 133);
+            this.xemDSHDNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.xemDSHDNhap.Name = "xemDSHDNhap";
+            this.xemDSHDNhap.Size = new System.Drawing.Size(136, 33);
+            this.xemDSHDNhap.TabIndex = 34;
+            this.xemDSHDNhap.Text = "Xem danh sách";
+            this.xemDSHDNhap.UseVisualStyleBackColor = true;
+            this.xemDSHDNhap.Click += new System.EventHandler(this.xemDSHDNhap_Click);
             // 
-            // button29
+            // resetHDnhap
             // 
-            this.button29.Location = new System.Drawing.Point(316, 133);
-            this.button29.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(91, 33);
-            this.button29.TabIndex = 33;
-            this.button29.Text = "Làm mới";
-            this.button29.UseVisualStyleBackColor = true;
+            this.resetHDnhap.Location = new System.Drawing.Point(316, 133);
+            this.resetHDnhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.resetHDnhap.Name = "resetHDnhap";
+            this.resetHDnhap.Size = new System.Drawing.Size(91, 33);
+            this.resetHDnhap.TabIndex = 33;
+            this.resetHDnhap.Text = "Làm mới";
+            this.resetHDnhap.UseVisualStyleBackColor = true;
+            this.resetHDnhap.Click += new System.EventHandler(this.resetHDnhap_Click);
             // 
             // addHDNhap
             // 
@@ -256,7 +258,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 750);
+            this.ClientSize = new System.Drawing.Size(1209, 697);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -280,8 +282,8 @@
         private System.Windows.Forms.ComboBox comboboxNCC;
         private System.Windows.Forms.ComboBox comboboxNhanVien;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgaylap;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button xemDSHDNhap;
+        private System.Windows.Forms.Button resetHDnhap;
         private System.Windows.Forms.Button addHDNhap;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
