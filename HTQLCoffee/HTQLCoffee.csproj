@@ -53,16 +53,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="chiTietHDBan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chiTietHDBan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="chiTietHDNhap.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>chiTietHDNhap.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\DouongController.cs" />
+    <Compile Include="Controller\HoaDonController.cs" />
     <Compile Include="Controller\NguyenLieuController.cs" />
     <Compile Include="Controller\NhaCungCapController.cs" />
     <Compile Include="Controller\NhanVienController.cs" />
     <Compile Include="Controller\PhieuNhapController.cs" />
+    <Compile Include="Model\DouongModel.cs" />
+    <Compile Include="Model\HoaDonModel.cs" />
     <Compile Include="Model\NguyenLieuModel.cs" />
     <Compile Include="Model\NhaCungCapModel.cs" />
     <Compile Include="Model\NhanVienModel.cs" />
@@ -87,11 +97,23 @@
     <Compile Include="View\frmBaoCao.Designer.cs">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmChiTietHDBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmChiTietHDBan.Designer.cs">
+      <DependentUpon>frmChiTietHDBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmChiTietHDNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\frmChiTietHDNhap.Designer.cs">
       <DependentUpon>frmChiTietHDNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDSHDBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDSHDBan.Designer.cs">
+      <DependentUpon>frmDSHDBan.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmDSHDNhap.cs">
       <SubType>Form</SubType>
@@ -129,6 +151,10 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="chiTietHDBan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>chiTietHDBan.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="chiTietHDNhap.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>chiTietHDNhap.cs</LastGenOutput>
@@ -151,11 +177,20 @@
     <EmbeddedResource Include="View\frmBaoCao.resx">
       <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmChiTietHDBan.resx">
+      <DependentUpon>frmChiTietHDBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmChiTietHDNhap.resx">
       <DependentUpon>frmChiTietHDNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDSHDBan.resx">
+      <DependentUpon>frmDSHDBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmDSHDNhap.resx">
       <DependentUpon>frmDSHDNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmHDBan.resx">
+      <DependentUpon>frmHDBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmHDNhap.resx">
       <DependentUpon>frmHDNhap.cs</DependentUpon>

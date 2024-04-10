@@ -34,11 +34,11 @@
             this.menuNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNguyenLieu = new System.Windows.Forms.ToolStripMenuItem();
+            this.nccMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.doUongMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HDNhapMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.HDBanMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.nccMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.doUongMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             // menuNhanVien
             // 
             this.menuNhanVien.Name = "menuNhanVien";
-            this.menuNhanVien.Size = new System.Drawing.Size(224, 26);
+            this.menuNhanVien.Size = new System.Drawing.Size(160, 26);
             this.menuNhanVien.Text = "Nhân Viên";
             this.menuNhanVien.Click += new System.EventHandler(this.menuNhanVien_Click);
             // 
@@ -83,9 +83,23 @@
             // menuNguyenLieu
             // 
             this.menuNguyenLieu.Name = "menuNguyenLieu";
-            this.menuNguyenLieu.Size = new System.Drawing.Size(224, 26);
+            this.menuNguyenLieu.Size = new System.Drawing.Size(183, 26);
             this.menuNguyenLieu.Text = "Nguyên Liệu";
             this.menuNguyenLieu.Click += new System.EventHandler(this.menuNguyenLieu_Click);
+            // 
+            // nccMenu
+            // 
+            this.nccMenu.Name = "nccMenu";
+            this.nccMenu.Size = new System.Drawing.Size(183, 26);
+            this.nccMenu.Text = "Nhà cung cấp";
+            this.nccMenu.Click += new System.EventHandler(this.nccMenu_Click);
+            // 
+            // doUongMenu
+            // 
+            this.doUongMenu.Name = "doUongMenu";
+            this.doUongMenu.Size = new System.Drawing.Size(183, 26);
+            this.doUongMenu.Text = "Đồ uống";
+            this.doUongMenu.Click += new System.EventHandler(this.doUongMenu_Click);
             // 
             // quảnLýHóaĐơnToolStripMenuItem
             // 
@@ -108,20 +122,7 @@
             this.HDBanMenu.Name = "HDBanMenu";
             this.HDBanMenu.Size = new System.Drawing.Size(224, 26);
             this.HDBanMenu.Text = "Hóa Đơn Bán";
-            // 
-            // nccMenu
-            // 
-            this.nccMenu.Name = "nccMenu";
-            this.nccMenu.Size = new System.Drawing.Size(224, 26);
-            this.nccMenu.Text = "Nhà cung cấp";
-            this.nccMenu.Click += new System.EventHandler(this.nccMenu_Click);
-            // 
-            // doUongMenu
-            // 
-            this.doUongMenu.Name = "doUongMenu";
-            this.doUongMenu.Size = new System.Drawing.Size(224, 26);
-            this.doUongMenu.Text = "Đồ uống";
-            this.doUongMenu.Click += new System.EventHandler(this.doUongMenu_Click);
+            this.HDBanMenu.Click += new System.EventHandler(this.HDBanMenu_Click);
             // 
             // MainForm
             // 
