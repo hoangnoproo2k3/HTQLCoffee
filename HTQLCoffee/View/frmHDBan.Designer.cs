@@ -176,6 +176,7 @@
             this.xemDSHDBan.TabIndex = 43;
             this.xemDSHDBan.Text = "Xem danh sách";
             this.xemDSHDBan.UseVisualStyleBackColor = true;
+            this.xemDSHDBan.Click += new System.EventHandler(this.xemDSHDBan_Click);
             // 
             // resetHDban
             // 

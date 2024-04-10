@@ -196,12 +196,6 @@ namespace HTQLCoffee.View
             comboboxNhanVien.SelectedIndex = -1;
             delNL.Enabled = false;
         }
-        private void xemDSHDNhap_Click(object sender, EventArgs e)
-        {
-            frmDSHDNhap dSHDNhap = new frmDSHDNhap();
-            dSHDNhap.ShowDialog();
-        }
-
         private void resetHDban_Click(object sender, EventArgs e)
         {
             cbbDoUong.SelectedIndex = -1;
@@ -211,6 +205,12 @@ namespace HTQLCoffee.View
             selectedProducts.Clear();
             dataGridViewSelectedProducts.DataSource = null;
             delNL.Enabled = false;
+        }
+
+        private void xemDSHDBan_Click(object sender, EventArgs e)
+        {
+            frmDSHDBan dSHDban = new frmDSHDBan();
+            dSHDban.ShowDialog();
         }
     }
 }
