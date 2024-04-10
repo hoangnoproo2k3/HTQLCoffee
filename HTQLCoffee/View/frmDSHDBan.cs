@@ -92,7 +92,7 @@ namespace HTQLCoffee.View
                     chiTietHDBan report = new chiTietHDBan();
                     report.SetDataSource(dataTable);
                     report.SetParameterValue("@HoaDonID", selectedPhieuNhapID);
-                    frmBaoCao frm = new frmBaoCao();
+                    frmInBaoCao frm = new frmInBaoCao();
                     frm.crystalReportViewer1.ReportSource = report;
                     frm.Show();
                 }

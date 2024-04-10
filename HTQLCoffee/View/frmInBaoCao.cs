@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace HTQLCoffee.View
 {
-    public partial class frmBaoCao : Form
+    public partial class frmInBaoCao : Form
     {
-        public frmBaoCao()
+        public frmInBaoCao()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }

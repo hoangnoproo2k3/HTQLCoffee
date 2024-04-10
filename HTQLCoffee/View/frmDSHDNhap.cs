@@ -95,12 +95,12 @@ namespace HTQLCoffee.View
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-                    //chiTietHDNhap report = new chiTietHDNhap();
-                    //report.SetDataSource(dataTable);
-                    //report.SetParameterValue("@PhieuNhapID", selectedPhieuNhapID);
-                    //frmBaoCao frm = new frmBaoCao();
-                    //frm.crystalReportViewer1.ReportSource = report;
-                    //frm.Show();
+                    chiTietHDNhap report = new chiTietHDNhap();
+                    report.SetDataSource(dataTable);
+                    report.SetParameterValue("@PhieuNhapID", selectedPhieuNhapID);
+                    frmInBaoCao frm = new frmInBaoCao();
+                    frm.crystalReportViewer1.ReportSource = report;
+                    frm.Show();
                 }
             }
         }
