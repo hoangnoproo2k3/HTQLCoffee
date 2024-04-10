@@ -39,7 +39,7 @@ namespace HTQLCoffee.View
             MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Authorize.Instance.clearSession();
             Form login = new LoginView();
-            this.Hide();            
+            this.Hide();
             login.ShowDialog();
             this.Close();
         }

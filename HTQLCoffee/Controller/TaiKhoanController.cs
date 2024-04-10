@@ -37,9 +37,9 @@ namespace HTQLCoffee.Controller
             taiKhoanModel.GetTaiKhoanData(dgv_TaiKhoan);
         }
 
-        public void timKiemController( string matKhau, string maNhanVien, string quyen, DataGridView dgv_TaiKhoan)
+        public void timKiemController(string matKhau, string maNhanVien, string quyen, DataGridView dgv_TaiKhoan)
         {
-            this.taiKhoanModel.timKiem( matKhau, maNhanVien, quyen, dgv_TaiKhoan);
+            this.taiKhoanModel.timKiem(matKhau, maNhanVien, quyen, dgv_TaiKhoan);
         }
 
         public void suaTaiKhoanController(int maNhanVien, string matKhau, int quyen, DataGridView dgv_TaiKhoan)

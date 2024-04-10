@@ -68,7 +68,7 @@ namespace HTQLCoffee.View
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(160, 20);
             this.txtNewPassword.TabIndex = 60;
-            this.txtNewPassword.TextChanged += new System.EventHandler(this.txtNewPassword_TextChanged);
+            this.txtNewPassword.Click += new System.EventHandler(this.txtNewPassword_TextChanged);
             // 
             // txtReNewPassword
             // 
@@ -77,7 +77,7 @@ namespace HTQLCoffee.View
             this.txtReNewPassword.Name = "txtReNewPassword";
             this.txtReNewPassword.Size = new System.Drawing.Size(160, 20);
             this.txtReNewPassword.TabIndex = 61;
-            this.txtReNewPassword.TextChanged += new System.EventHandler(this.txtReNewPassword_TextChanged);
+            this.txtReNewPassword.Click += new System.EventHandler(this.txtReNewPassword_TextChanged);
             // 
             // txtOldPassword
             // 
@@ -86,7 +86,7 @@ namespace HTQLCoffee.View
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Size = new System.Drawing.Size(160, 20);
             this.txtOldPassword.TabIndex = 59;
-            this.txtOldPassword.TextChanged += new System.EventHandler(this.txtOldPassword_TextChanged);
+            this.txtOldPassword.Click += new System.EventHandler(this.txtOldPassword_TextChanged);
             // 
             // btnXacNhan
             // 
@@ -110,7 +110,7 @@ namespace HTQLCoffee.View
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(166, 171);
+            this.label3.Location = new System.Drawing.Point(166, 169);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
@@ -121,7 +121,7 @@ namespace HTQLCoffee.View
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 138);
+            this.label2.Location = new System.Drawing.Point(180, 136);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
@@ -132,7 +132,7 @@ namespace HTQLCoffee.View
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(166, 100);
+            this.label1.Location = new System.Drawing.Point(186, 103);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
@@ -167,6 +167,7 @@ namespace HTQLCoffee.View
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.TextBox txtReNewPassword;
         private System.Windows.Forms.TextBox txtOldPassword;
@@ -174,6 +175,5 @@ namespace HTQLCoffee.View
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
     }
 }
