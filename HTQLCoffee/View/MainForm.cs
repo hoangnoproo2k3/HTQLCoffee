@@ -59,7 +59,6 @@ namespace HTQLCoffee.View
             customer.Show();
         }
 
-
         private void tạoTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TaiKhoanView account = new TaiKhoanView();
@@ -74,6 +73,13 @@ namespace HTQLCoffee.View
             pass.MdiParent = this;
             pass.Dock = DockStyle.Fill;
             pass.Show();
+        }
+        private void HDBanMenu_Click(object sender, EventArgs e)
+        {
+            frmHDBan frmHD = new frmHDBan();
+            frmHD.MdiParent = this;
+            frmHD.Dock = DockStyle.Fill;
+            frmHD.Show();
         }
     }
 }
