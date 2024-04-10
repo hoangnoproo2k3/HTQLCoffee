@@ -150,6 +150,7 @@
     </Compile>
     <EmbeddedResource Include="View\FormNguyenLieu.resx">
       <DependentUpon>FormNguyenLieu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
