@@ -36,30 +36,35 @@
             // listNguyenLieu
             // 
             this.listNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listNguyenLieu.Location = new System.Drawing.Point(12, 272);
+            this.listNguyenLieu.Location = new System.Drawing.Point(39, 221);
+            this.listNguyenLieu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listNguyenLieu.Name = "listNguyenLieu";
             this.listNguyenLieu.RowHeadersWidth = 51;
             this.listNguyenLieu.RowTemplate.Height = 24;
-            this.listNguyenLieu.Size = new System.Drawing.Size(776, 150);
+            this.listNguyenLieu.Size = new System.Drawing.Size(582, 122);
             this.listNguyenLieu.TabIndex = 0;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 13);
+            this.groupBox1.Location = new System.Drawing.Point(39, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 253);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(582, 206);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // frmNguyenLieu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listNguyenLieu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmNguyenLieu";
             this.Text = "frmNguyenLieu";
             ((System.ComponentModel.ISupportInitialize)(this.listNguyenLieu)).EndInit();

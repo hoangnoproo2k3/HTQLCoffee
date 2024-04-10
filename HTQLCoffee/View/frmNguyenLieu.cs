@@ -28,5 +28,11 @@ namespace HTQLCoffee.View
             List<NguyenLieuModel> danhSachNguyenLieu = _nguyenLieuController.LayDanhSachNguyenLieu();
             listNguyenLieu.DataSource = danhSachNguyenLieu;
         }
+
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
