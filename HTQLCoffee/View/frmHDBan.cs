@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HTQLCoffee.View
 {
-    public partial class frmNhanVien : Form
+    public partial class frmHDBan : Form
     {
-        public frmNhanVien()
+        public frmHDBan()
         {
             InitializeComponent();
         }
