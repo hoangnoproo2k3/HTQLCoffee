@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboboxNhanVien = new System.Windows.Forms.ComboBox();
             this.addDSHDNhap = new System.Windows.Forms.Button();
+            this.allIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listPhieuNhap)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@
             this.InHDNhap.Name = "InHDNhap";
             this.InHDNhap.Size = new System.Drawing.Size(169, 31);
             this.InHDNhap.TabIndex = 6;
-            this.InHDNhap.Text = "In hóa đơn nhập";
+            this.InHDNhap.Text = "In chi tiết";
             this.InHDNhap.UseVisualStyleBackColor = true;
             this.InHDNhap.Click += new System.EventHandler(this.InHDNhap_Click);
             // 
@@ -102,7 +103,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(83, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "Nhân viên";
             // 
@@ -124,11 +125,22 @@
             this.addDSHDNhap.UseVisualStyleBackColor = true;
             this.addDSHDNhap.Click += new System.EventHandler(this.addDSHDNhap_Click);
             // 
+            // allIn
+            // 
+            this.allIn.Location = new System.Drawing.Point(539, 379);
+            this.allIn.Name = "allIn";
+            this.allIn.Size = new System.Drawing.Size(144, 31);
+            this.allIn.TabIndex = 11;
+            this.allIn.Text = "In danh sách";
+            this.allIn.UseVisualStyleBackColor = true;
+            this.allIn.Click += new System.EventHandler(this.allIn_Click);
+            // 
             // frmDSHDNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.allIn);
             this.Controls.Add(this.addDSHDNhap);
             this.Controls.Add(this.comboboxNhanVien);
             this.Controls.Add(this.label2);
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboboxNhanVien;
         private System.Windows.Forms.Button addDSHDNhap;
+        private System.Windows.Forms.Button allIn;
     }
 }

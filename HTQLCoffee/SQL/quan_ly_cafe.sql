@@ -30,6 +30,15 @@ CREATE TABLE tblTaikhoan (
     FOREIGN KEY (PK_iNhanvienID) REFERENCES tblNhanvien(PK_iNhanvienID),
     FOREIGN KEY (PK_iPhanquyenID) REFERENCES tblPhanquyen(PK_iPhanquyenID)
 );
+insert into tblPhanquyen
+values(1, N'Quản lý')
+insert into tblPhanquyen
+values(2, N'Nhân viên')
+
+
+insert into tblTaikhoan
+values(1, 123, 1)
+
 -- bảng nhà cung cấp
 CREATE TABLE tblNhacungcap (
     PK_iNhacungcapID INT PRIMARY KEY,
@@ -106,7 +115,72 @@ CREATE TABLE tblChitietHoadon (
     FOREIGN KEY (PK_iHoadonID) REFERENCES tblHoadon(PK_iHoadonID),
     FOREIGN KEY (PK_iDouongID) REFERENCES tblDouong(PK_iDouongID)
 );
--- ================================== Producre thêm mới Phiếu nhập và chi tiết phiếu nhập  ===================
+
+--==================== TÀI KHOẢN =====================
+CREATE PROCEDURE sp_getTK
+AS
+	SELECT nv.sTenNhanvien, tk.*, ltk.sTenquyen
+	FROM tblTaikhoan tk 
+	JOIN tblPhanquyen ltk ON ltk.PK_iPhanquyenID = tk.PK_iPhanquyenID
+	JOIN tblNhanvien nv ON nv.PK_iNhanvienID = tk.PK_iNhanvienID 	
+
+
+CREATE PROC prGetAccoun(@id int, @password nvarchar(50) )
+AS
+	BEGIN
+		SELECT tk.PK_iNhanvienID, ltk.sTenquyen
+		FROM tblTaikhoan tk 
+		JOIN tblPhanquyen ltk ON ltk.PK_iPhanquyenID = tk.PK_iPhanquyenID
+		JOIN tblNhanvien nv ON nv.PK_iNhanvienID = tk.PK_iNhanvienID 
+		WHERE tk.PK_iNhanvienID = @id AND sMatkhau = @password;
+	END
+GO
+create PROC prChangePassword( @id int, @oldPassword nvarchar(50),  @newPassword nvarchar(50))
+AS
+	BEGIN
+		UPDATE tblTaiKhoan
+		SET sMatkhau = @newPassword
+		WHERE tblTaiKhoan.PK_iNhanvienID = @id AND sMatkhau = @oldPassword;
+	END
+
+create proc sp_delete (@iNhanvien int)
+as 
+begin
+	delete tblTaikhoan
+	where @iNhanvien = tblTaikhoan.PK_iNhanvienID
+end
+
+create PROCEDURE sp_get_taikhoan
+AS
+SELECT * FROM tblTaikhoan
+
+create PROCEDURE sp_insertTK(
+	@id int,
+	@quyen int,
+	@Matkhau nvarchar(50)
+)
+AS
+
+begin
+	INSERT INTO tblTaikhoan(PK_iNhanvienID, sMatkhau, PK_iPhanquyenID)
+	VALUES (@id, @quyen, @Matkhau)
+end
+
+
+create PROCEDURE sp_update_taikhoan
+(
+    @Mataikhoan int,
+    @Maquyen int,
+    @Matkhau nvarchar(50)
+)
+AS
+BEGIN
+    UPDATE tblTaikhoan
+    SET PK_iPhanquyenID = @Maquyen, sMatkhau = @Matkhau
+    WHERE tblTaikhoan.PK_iNhanvienID = @Mataikhoan
+END
+
+-- ================================== PHIẾU NHẬP VÀ CHI TIẾT PHIẾU NHẬP  ===================
 CREATE TYPE dbo.ChitietPhieunhapDetails AS TABLE
 (
     PK_iNguyenlieuID INT,
@@ -156,6 +230,42 @@ EXEC sp_InsertPhieunhap
 
 select * from tblPhieunhap
 select * from tblChitietPhieunhap
+-- ================================== HÓA ĐƠN VÀ CHI TIẾT HÓA ĐƠN  ===================
+CREATE TYPE dbo.ChitietHoadonDetails AS TABLE
+(
+    PK_iDouongID INT,
+    iSoluong INT,
+    fDonGia FLOAT
+);
+CREATE PROCEDURE [dbo].[sp_InsertHoadon]
+    @PK_iNhanvienID INT,
+    @dNgaylap DATE,
+    @ChitietHoadonDetails AS dbo.ChitietHoadonDetails READONLY
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Thêm hóa đơn vào bảng tblHoadon
+    DECLARE @PK_iHoadonID INT;
+    INSERT INTO tblHoadon (PK_iNhanvienID, dNgaylap)
+    VALUES (@PK_iNhanvienID, @dNgaylap);
+    SET @PK_iHoadonID = SCOPE_IDENTITY();
+    
+    -- Tính tổng tiền từ các chi tiết hóa đơn và cập nhật vào bảng tblHoadon
+    DECLARE @fTongtien FLOAT;
+    SELECT @fTongtien = SUM(iSoluong * fDonGia)
+    FROM @ChitietHoadonDetails;
+    
+    UPDATE tblHoadon
+    SET fTongtien = @fTongtien
+    WHERE PK_iHoadonID = @PK_iHoadonID;
+
+    -- Thêm chi tiết hóa đơn vào bảng tblChitietHoadon
+    INSERT INTO tblChitietHoadon (PK_iHoadonID, PK_iDouongID, iSoluong, fDonGia)
+    SELECT @PK_iHoadonID, PK_iDouongID, iSoluong, fDonGia
+    FROM @ChitietHoadonDetails;
+END;
+-- ========================= SELECTPROCEDURE ============
 SELECT PN.PK_iPhieunhapID, PN.PK_iNhanvienID, NV.sTenNhanVien, PN.PK_iNhacungcapID, NC.sTenNhacungcap, PN.dNgaylap, PN.fTongtien from tblPhieunhap PN 
 INNER JOIN tblNhanvien NV ON PN.PK_iNhanvienID = NV.PK_iNhanvienID
 INNER JOIN tblNhacungcap NC ON PN.PK_iNhacungcapID = NC.PK_iNhacungcapID
@@ -164,7 +274,7 @@ SELECT NL.sTenNguyenlieu, CT.fSoluong, CT.fDongia
 FROM tblChitietPhieunhap CT
 INNER JOIN tblNguyenlieu NL ON CT.PK_iNguyenlieuID = NL.PK_iNguyenlieuID
 WHERE CT.PK_iPhieunhapID = 2
--- <=>
+-- <=> Chi tiết hóa đơn
 CREATE PROCEDURE Usp_LayChiTietPhieuNhap
     @PhieuNhapID INT
 AS
@@ -174,3 +284,43 @@ BEGIN
     INNER JOIN tblNguyenlieu NL ON CT.PK_iNguyenlieuID = NL.PK_iNguyenlieuID
     WHERE CT.PK_iPhieunhapID = @PhieuNhapID
 END
+CREATE PROCEDURE [dbo].[Usp_LayChiTietHoaDon]
+    @HoaDonID INT
+AS
+BEGIN
+    SELECT  NL.sTenDouong,NV.sTenNhanvien, NV.sSodienthoai, CT.iSoluong, CT.fDongia 
+    FROM tblChitietHoadon CT
+    INNER JOIN tblHoadon HD ON CT.PK_iHoadonID = HD.PK_iHoadonID
+    INNER JOIN tblNhanvien NV ON HD.PK_iNhanvienID = NV.PK_iNhanvienID
+    INNER JOIN tblDouong NL ON CT.PK_iDouongID = NL.PK_iDouongID
+    WHERE CT.PK_iHoadonID = @HoaDonID
+END
+-- Danh sách hóa đơn theo ngày
+CREATE PROCEDURE GetInvoicesByDate
+AS
+BEGIN
+    SELECT 
+        pn.PK_iPhieunhapID AS 'MaPhieuNhap',
+        nv.sTenNhanvien AS 'TenNhanVien',
+        ncc.sTenNhacungcap AS 'TenNhaCungCap',
+        pn.dNgaylap AS 'NgayLap',
+        pn.fTongtien AS 'TongTien',
+        ctp.PK_iNguyenlieuID AS 'MaNguyenLieu',
+        nl.sTenNguyenlieu AS 'TenNguyenLieu',
+        nl.fSoluong AS 'SoLuong',
+        nl.sDonvitinh AS 'DonViTinh',
+        ctp.fDongia AS 'DonGia'
+    FROM 
+        tblPhieunhap pn
+    INNER JOIN 
+        tblNhanvien nv ON pn.PK_iNhanvienID = nv.PK_iNhanvienID
+    INNER JOIN 
+        tblNhacungcap ncc ON pn.PK_iNhacungcapID = ncc.PK_iNhacungcapID
+    INNER JOIN 
+        tblChitietPhieunhap ctp ON pn.PK_iPhieunhapID = ctp.PK_iPhieunhapID
+    INNER JOIN 
+        tblNguyenlieu nl ON ctp.PK_iNguyenlieuID = nl.PK_iNguyenlieuID
+    ORDER BY 
+        pn.dNgaylap, pn.PK_iPhieunhapID, ctp.PK_iNguyenlieuID;
+END;
+

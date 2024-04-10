@@ -104,5 +104,25 @@ namespace HTQLCoffee.View
                 }
             }
         }
+
+        private void allIn_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("GetInvoicesByDate", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dsPhieuNhap report = new dsPhieuNhap();
+                    report.SetDataSource(dataTable);
+                    frmInBaoCao frm = new frmInBaoCao();
+                    frm.crystalReportViewer1.ReportSource = report;
+                    frm.Show();
+                }
+            }
+        }
     }
 }

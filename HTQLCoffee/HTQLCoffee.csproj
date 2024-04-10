@@ -73,6 +73,12 @@
     <Compile Include="Controller\NhanVienController.cs" />
     <Compile Include="Controller\PhieuNhapController.cs" />
     <Compile Include="Controller\TaiKhoanController.cs" />
+    <Compile Include="dsPhieuNhap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPhieuNhap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\DouongModel.cs" />
     <Compile Include="Model\HoaDonModel.cs" />
@@ -181,6 +187,10 @@
     <EmbeddedResource Include="chiTietHDNhap.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>chiTietHDNhap.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dsPhieuNhap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>dsPhieuNhap.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
