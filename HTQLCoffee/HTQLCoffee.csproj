@@ -51,9 +51,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="View\Authorize.cs" />
-    <Compile Include="Controller\NguyenLieuController.cs" />
     <Compile Include="Controller\TaiKhoanController.cs" />
-    <Compile Include="Model\NguyenLieuModel.cs" />
     <Compile Include="Model\TaiKhoanModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,18 +67,6 @@
     </Compile>
     <Compile Include="View\LoginView.Designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmNguyenLieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmNguyenLieu.Designer.cs">
-      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmNhanVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmNhanVien.Designer.cs">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TaiKhoanView.cs">
       <SubType>Form</SubType>
@@ -108,12 +94,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmNguyenLieu.resx">
-      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmNhanVien.resx">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TaiKhoanView.resx">
       <DependentUpon>TaiKhoanView.cs</DependentUpon>
