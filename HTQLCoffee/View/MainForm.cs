@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HTQLCoffee.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,6 +59,21 @@ namespace HTQLCoffee.View
             customer.Show();
         }
 
+        private void tạoTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaiKhoanView account = new TaiKhoanView();
+            account.MdiParent = this;
+            account.Dock = DockStyle.Fill;
+            account.Show();
+        }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangePassView pass = new ChangePassView();
+            pass.MdiParent = this;
+            pass.Dock = DockStyle.Fill;
+            pass.Show();
+        }
         private void HDBanMenu_Click(object sender, EventArgs e)
         {
             frmHDBan frmHD = new frmHDBan();

@@ -14,7 +14,7 @@ namespace HTQLCoffee.View
     {
         public frmBaoCao()
         {
-            InitializeComponent();
+            //InitializeComponent();
         }
     }
 }
