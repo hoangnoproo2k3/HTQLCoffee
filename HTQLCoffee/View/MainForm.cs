@@ -57,5 +57,13 @@ namespace HTQLCoffee.View
             customer.Dock = DockStyle.Fill;
             customer.Show();
         }
+
+        private void HDBanMenu_Click(object sender, EventArgs e)
+        {
+            frmHDBan frmHD = new frmHDBan();
+            frmHD.MdiParent = this;
+            frmHD.Dock = DockStyle.Fill;
+            frmHD.Show();
+        }
     }
 }

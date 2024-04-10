@@ -203,5 +203,23 @@ namespace HTQLCoffee.View
             comboboxNhanVien.SelectedIndex = -1;
             delNL.Enabled = false;
         }
+
+        private void xemDSHDNhap_Click(object sender, EventArgs e)
+        {
+            frmDSHDNhap dSHDNhap = new frmDSHDNhap();
+            dSHDNhap.ShowDialog();
+        }
+
+        private void resetHDnhap_Click(object sender, EventArgs e)
+        {
+            comboboxNguyenLieu.SelectedIndex = -1;
+            txtDongia.Text = string.Empty;
+            numericUpDownSoluong.Value = 0;
+            comboboxNhanVien.SelectedIndex = -1;
+            comboboxNCC.SelectedIndex = -1;
+            selectedProducts.Clear();
+            dataGridViewSelectedProducts.DataSource = null;
+            delNL.Enabled = false;
+        }
     }
 }
