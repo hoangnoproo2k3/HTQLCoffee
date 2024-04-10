@@ -33,10 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,39 +53,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\LoginController.cs" />
-    <Compile Include="Model\LoginModel.cs" />
-    <Compile Include="View\Authorize.cs" />
+    <Compile Include="chiTietHDNhap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chiTietHDNhap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\NguyenLieuController.cs" />
-    <Compile Include="Controller\TaiKhoanController.cs" />
+    <Compile Include="Controller\NhaCungCapController.cs" />
+    <Compile Include="Controller\NhanVienController.cs" />
+    <Compile Include="Controller\PhieuNhapController.cs" />
     <Compile Include="Model\NguyenLieuModel.cs" />
-    <Compile Include="Model\TaiKhoanModel.cs" />
+    <Compile Include="Model\NhaCungCapModel.cs" />
+    <Compile Include="Model\NhanVienModel.cs" />
+    <Compile Include="Model\PhieuNhapModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Constants.cs" />
-    <Compile Include="View\ChangePassView.cs">
+    <Compile Include="View\FormNguyenLieu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ChangePassView.Designer.cs">
-      <DependentUpon>ChangePassView.cs</DependentUpon>
+    <Compile Include="View\FormNguyenLieu.Designer.cs">
+      <DependentUpon>FormNguyenLieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginView.cs">
+    <Compile Include="View\FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LoginView.Designer.cs">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <Compile Include="View\FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmNguyenLieu.cs">
+    <Compile Include="View\frmBaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmNguyenLieu.Designer.cs">
-      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
+    <Compile Include="View\frmBaoCao.Designer.cs">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmNhanVien.cs">
+    <Compile Include="View\frmChiTietHDNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmNhanVien.Designer.cs">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    <Compile Include="View\frmChiTietHDNhap.Designer.cs">
+      <DependentUpon>frmChiTietHDNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmDSHDNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmDSHDNhap.Designer.cs">
+      <DependentUpon>frmDSHDNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmHDBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmHDBan.Designer.cs">
+      <DependentUpon>frmHDBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmHDNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmHDNhap.Designer.cs">
+      <DependentUpon>frmHDNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fromDoUong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fromDoUong.Designer.cs">
+      <DependentUpon>fromDoUong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fromNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fromNCC.Designer.cs">
+      <DependentUpon>fromNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="View\TaiKhoanView.cs">
       <SubType>Form</SubType>
@@ -94,6 +135,10 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="chiTietHDNhap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>chiTietHDNhap.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -103,17 +148,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\ChangePassView.resx">
-      <DependentUpon>ChangePassView.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormNguyenLieu.resx">
+      <DependentUpon>FormNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LoginView.resx">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormNhanVien.resx">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmNguyenLieu.resx">
-      <DependentUpon>frmNguyenLieu.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmBaoCao.resx">
+      <DependentUpon>frmBaoCao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmNhanVien.resx">
-      <DependentUpon>frmNhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmChiTietHDNhap.resx">
+      <DependentUpon>frmChiTietHDNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmDSHDNhap.resx">
+      <DependentUpon>frmDSHDNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmHDNhap.resx">
+      <DependentUpon>frmHDNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fromDoUong.resx">
+      <DependentUpon>fromDoUong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fromNCC.resx">
+      <DependentUpon>fromNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TaiKhoanView.resx">
       <DependentUpon>TaiKhoanView.cs</DependentUpon>
@@ -137,6 +194,9 @@
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
