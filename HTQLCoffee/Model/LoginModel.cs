@@ -63,6 +63,27 @@ namespace HTQLCoffee.Model
 
             }
         }
+          public bool CheckAccount(string id, string password)
+        {
+
+            using (SqlConnection cnn = new SqlConnection(connectionString))
+            {
+                cnn.Open();
+                string query = "SELECT COUNT(*) FROM tblTaikhoan WHERE PK_iNhanvienID = @id AND sMatkhau = @password";
+
+                    using (SqlCommand cmd = new SqlCommand(query, cnn))
+                {
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@password", password);
+
+                    int count = (int)cmd.ExecuteScalar();
+
+                    return count >0;
+                }
+
+            }
+        }
 
     }
 }
