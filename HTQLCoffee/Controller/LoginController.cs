@@ -23,5 +23,9 @@ namespace HTQLCoffee.Controller
         {
             return this.loginModel.changePassword(Authorize.Instance.MaNV, oldPassword, newPassword);
         }
+        public bool check(String username, String password)
+        {
+            return this.loginModel.CheckAccount(username, password);
+        }
     }
 }
