@@ -110,7 +110,7 @@ namespace HTQLCoffee.Model
             dgv_TaiKhoan.DataSource = view;
         }
 
-        public void timKiem(string matKhau, string quyen, string maNhanVien, DataGridView dgv_TaiKhoan)
+        public void timKiem(string matKhau, string maNhanVien, string quyen, DataGridView dgv_TaiKhoan)
         {
             string dieukienLoc = "PK_iNhanvienID>0";
             if (!string.IsNullOrEmpty(matKhau))
