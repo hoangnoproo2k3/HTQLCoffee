@@ -41,13 +41,28 @@ namespace HTQLCoffee.View
                 this.Close();
             }
         }
-        private bool validateAccount(string username, string password)
+               private bool validateAccount(string username, string password)
         {
             if (username == string.Empty || password == string.Empty)
             {
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+            Regex validateInputRegex = new Regex("^.{1,}$");
+            if (!validateInputRegex.IsMatch(username) || !validateInputRegex.IsMatch(password))
+            {
+                MessageBox.Show("Thông tin đăng nhập chưa chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            bool isCheckAccount = logincontroller.login(username, password);
+
+            if (!logincontroller.check(username,password))
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
             return true;
         }
 
