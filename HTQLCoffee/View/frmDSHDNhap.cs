@@ -116,11 +116,11 @@ namespace HTQLCoffee.View
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-                    dsPhieuNhap report = new dsPhieuNhap();
-                    report.SetDataSource(dataTable);
-                    frmInBaoCao frm = new frmInBaoCao();
-                    frm.crystalReportViewer1.ReportSource = report;
-                    frm.Show();
+                    //dsPhieuNhap report = new dsPhieuNhap();
+                    //report.SetDataSource(dataTable);
+                    //frmInBaoCao frm = new frmInBaoCao();
+                    //frm.crystalReportViewer1.ReportSource = report;
+                    //frm.Show();
                 }
             }
         }

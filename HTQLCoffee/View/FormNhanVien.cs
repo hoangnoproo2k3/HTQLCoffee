@@ -9,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-namespace HTQLCoffee.View
+using System.Text.RegularExpressions;
+namespace quanlycafe
 {
     public partial class FormNhanVien : Form
     {
@@ -20,7 +20,7 @@ namespace HTQLCoffee.View
             dataGridView1.CellClick += dataGridView1_CellClick;
             LoadData();
         }
-        private string connectionString = ConfigurationManager.ConnectionStrings["HTQLCoffee"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["quanlycafe"].ConnectionString;
 
 
         private void LoadData()
@@ -113,6 +113,25 @@ namespace HTQLCoffee.View
             }
         }
 
+
+
+        private bool ContainsSpecialCharacters(string input)
+        {
+            // Biểu thức chính quy để kiểm tra xem chuỗi có chứa ký tự đặc biệt hoặc số không
+            Regex regex = new Regex(@"[^a-zA-Z\s]"); // Chỉ cho phép chữ cái và khoảng trắng
+            return regex.IsMatch(input);
+        }
+
+        private bool IsOver18YearsOld(DateTime ngaySinh)
+        {
+            // Tính toán số tuổi dựa trên ngày sinh và ngày hiện tại
+            int age = DateTime.Today.Year - ngaySinh.Year;
+            if (ngaySinh.Date > DateTime.Today.AddYears(-age)) age--;
+
+            // Kiểm tra xem tuổi có lớn hơn hoặc bằng 18 không
+            return age >= 18;
+        }
+
         private void btnthem_Click(object sender, EventArgs e)
         {
             try
@@ -130,6 +149,20 @@ namespace HTQLCoffee.View
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin của nhân viên!");
                     return; // Dừng thực thi hàm nếu không nhập đủ thông tin
+                }
+
+                // Kiểm tra xem tên nhân viên có chứa các ký tự đặc biệt hoặc số không
+                if (ContainsSpecialCharacters(tenNhanVien))
+                {
+                    MessageBox.Show("Tên nhân viên không được chứa các ký tự đặc biệt hoặc số!");
+                    return; // Dừng thực thi hàm nếu tên nhân viên không hợp lệ
+                }
+
+                // Kiểm tra xem nhân viên đã đủ 18 tuổi chưa
+                if (!IsOver18YearsOld(ngaySinh))
+                {
+                    MessageBox.Show("Nhân viên phải đủ 18 tuổi trở lên!");
+                    return; // Dừng thực thi hàm nếu nhân viên chưa đủ tuổi
                 }
 
                 // Kiểm tra xem mã nhân viên có trùng lặp không
@@ -153,7 +186,7 @@ namespace HTQLCoffee.View
                 {
                     connection.Open();
                     string query = @"INSERT INTO tblNhanvien (PK_iNhanvienID, sTenNhanvien, sSodienthoai, sDiachi, dNgaysinh, bGioitinh) 
-                            VALUES (@MaNhanVien, @TenNhanVien, @SoDienThoai, @DiaChi, @NgaySinh, @GioiTinh)";
+                    VALUES (@MaNhanVien, @TenNhanVien, @SoDienThoai, @DiaChi, @NgaySinh, @GioiTinh)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
@@ -171,8 +204,6 @@ namespace HTQLCoffee.View
                         // Nếu thêm thành công, làm mới dữ liệu trên DataGridView để hiển thị dữ liệu mới
                         LoadData();
 
-
-
                         MessageBox.Show("Thêm nhân viên thành công!");
                     }
                     else
@@ -186,6 +217,8 @@ namespace HTQLCoffee.View
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+
 
 
         // Hàm kiểm tra mã nhân viên có trùng lặp không
@@ -373,6 +406,8 @@ namespace HTQLCoffee.View
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
+
+
 
     }
 }

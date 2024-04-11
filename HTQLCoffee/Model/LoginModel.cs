@@ -21,13 +21,13 @@ namespace HTQLCoffee.Model
 
             using (SqlConnection cnn = new SqlConnection(connectionString))
             {
+                cnn.Open();
                 using (SqlCommand cmd = new SqlCommand("prGetAccoun", cnn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    cnn.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {

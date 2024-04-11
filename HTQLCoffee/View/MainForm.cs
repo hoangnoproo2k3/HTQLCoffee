@@ -81,5 +81,14 @@ namespace HTQLCoffee.View
             frmHD.Dock = DockStyle.Fill;
             frmHD.Show();
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Authorize.Instance.clearSession();
+            Form home = new LoginView();
+            this.Hide();
+            home.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace HTQLCoffee.View
+﻿namespace quanlycafe
 {
     partial class FormNhanVien
     {
